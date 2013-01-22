@@ -1,0 +1,40 @@
+.main {
+    padding: 10px;
+    float:none;
+    text-align:center;
+}
+
+img.head {
+	float:none;
+	margin: 10px;
+	width: 90%;
+	max-width: 256px;
+}
+
+.functionsep {
+    
+	padding: 10px 20px;
+    margin: 10px auto;
+    border-radius: 15px;
+    background: #ffffff;
+    width:90%;
+    max-width: 256px;
+}
+.functionsep div {
+	border: thin dotted #cccccc;
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .main {
+
+	    float:none;
+	}
+    img.head {
+    /*
+        float:left;
+	    margin: 10px auto;
+	    width: 90%;
+	    max-width: 256px;*/
+	}
+}
