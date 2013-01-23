@@ -216,7 +216,7 @@ h1 {
     display:none;
 }
 .navready {
-	/* display:none;*/
+	display:none;
 	margin: 20px 0;
 	cursor: pointer;
 }
