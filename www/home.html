@@ -45,7 +45,8 @@
 	        }
         
 	        function GetCurrentLocation() {
-	            navigator.geolocation.getCurrentPosition(onGeolocation, onError);
+	        	var options = { enableHighAccuracy: true };
+	            navigator.geolocation.getCurrentPosition(onGeolocation, onError, options);
 	        }
 	     // onSuccess Geolocation
 	        //
@@ -64,8 +65,11 @@
 	        var watchID = null;
 	        
 	        function WatchCurrentLocation() {
+	        	var element = document.getElementById('geowatchlocation');
+	        	//clear current content - button was pressed
+	        	element.innerHTML = '';
 	            // Update every 3 seconds
-	            var options = { frequency: 3000 };
+	            var options = { frequency: 3000, enableHighAccuracy: true };
 	            watchID = navigator.geolocation.watchPosition(onWatchGeolocation, onError, options);
 	        }
 
@@ -75,11 +79,11 @@
 	            var element = document.getElementById('geowatchlocation');
 	            element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
 	                                'Longitude: ' + position.coords.longitude     + '<br />' +
-	                                'Altitude: '           + position.coords.altitude              + '<br />' +
-                                    'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                                    'Heading: '            + position.coords.heading               + '<br />' +
-                                    'Speed: '              + position.coords.speed                 + '<br />' +
-                                    'Timestamp: '          + new Date(position.timestamp)          + '<br />' +
+	                                'Altitude: '  + position.coords.altitude      + '<br />' +
+                                    'Accuracy: '  + position.coords.accuracy      + '<br />' +
+                                    'Heading: '   + position.coords.heading       + '<br />' +
+                                    'Speed: '     + position.coords.speed         + '<br />' +
+                                    'Timestamp: ' + new Date(position.timestamp)  + '<br />' +
 	                                '<hr />'      + element.innerHTML;
 	        }
 

@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "edu.arizona.cals.AndroidAppDev1"
-        versionCode="5" 
+        versionCode="6" 
         version   = "1.0.0">
     <name>CALS App Dev v1.0</name>
 
