@@ -30,6 +30,8 @@
         <!-- <script type="text/javascript" src="cordova.js"></script> -->
         <script type="text/javascript" charset="utf-8">
         
+            var menuOpen = false;
+            var menuDiv = "";
             var pictureSource;   // picture source
             var destinationType; // sets the format of returned value 
             var encodingType; // sets the format of returned value 
@@ -39,9 +41,26 @@
 	        // Cordova is ready to be used!
 	        //
 	        function onDeviceReady() {
+	        	console.log("Device Ready");
 	            pictureSource=navigator.camera.PictureSourceType;
 	            destinationType=navigator.camera.DestinationType;
 	            encodingType=navigator.camera.EncodingType;
+	            //http://www.raymondcamden.com/index.cfm/2012/5/30/Example-of-adding-menu-support-to-a-PhoneGap-Application
+	            document.addEventListener("menubutton", doMenu, false);
+	        }
+	        
+	        function doMenu() {
+	            console.log("The menu was clicked...");
+	            menuDiv = document.querySelector("#menu");
+	            if(menuOpen) {
+	                console.log("close the menu");
+	                menuDiv.style.display="none";
+	                menuOpen = false;
+	            } else {
+	                console.log("open the menu");
+	                menuDiv.style.display="block";
+	                menuOpen = true;
+	            }
 	        }
         
 	        function GetCurrentLocation() {
@@ -215,6 +234,65 @@
 	        function openWindow(url) {
 	        	var ref = window.open(encodeURI(url), '_self', 'location=no');
 	        }
+	        
+	     // Show a custom confirmation dialog
+	        //
+	        function showConfirm() {
+	            navigator.notification.confirm(
+	                'What Settings should we show?',  // message
+	                onConfirm,              // callback to invoke with index of button pressed
+	                'Settings',            // title
+	                'Beep,Vibrate'          // buttonLabels
+	            );
+	        }
+	     
+	     // process the confirmation dialog result
+	        function onConfirm(buttonIndex) {
+	            alert('You selected button ' + buttonIndex);
+	            switch(buttonIndex)
+				{
+				case 0:
+					playBeep();
+				  break;
+				case 1:
+					playBeep();
+				  break;
+				case 2:
+                    vibrate();
+                  break;
+				default:
+					vibrate();
+				
+				}
+	        }
+	     
+	        // Show a custom alert
+	        //
+	        function showAlert() {
+	            navigator.notification.alert(
+	                'What to have here?',  // message
+	                alertDismissed,         // callback
+	                'Settings',            // title
+	                'Beep me!'                  // buttonName
+	            );
+	        }
+	     
+	     // alert dialog dismissed
+	        function alertDismissed() {
+	            // do something
+	        }
+	     
+	     // Beep three times
+	        //
+	        function playBeep() {
+	            navigator.notification.beep(3);
+	        }
+
+	        // Vibrate for 2 seconds
+	        //
+	        function vibrate() {
+	            navigator.notification.vibrate(1000);
+	        }
         </script>
     </head>
     <body>
@@ -255,6 +333,10 @@
 
         
         
-        
+        <div id="menu">
+		    <a href="home.html">Home</a><br/>
+		    <a href="#" onclick="openWindow('http://apps.cals.arizona.edu/cottondiseases');">jQuery Mobile site</a><br/>
+		    <a href="#" onclick="showConfirm(); return false;">Settings</a>
+		</div>
     </body>
 </html>
