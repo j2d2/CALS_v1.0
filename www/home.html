@@ -79,7 +79,7 @@
                                     'Accuracy: '           + position.coords.accuracy              + '<br />' +
                                     'Heading: '            + position.coords.heading               + '<br />' +
                                     'Speed: '              + position.coords.speed                 + '<br />' +
-                                    'Timestamp: '          + new Date(position.timestamp)          + '<br />';
+                                    'Timestamp: '          + new Date(position.timestamp)          + '<br />' +
 	                                '<hr />'      + element.innerHTML;
 	        }
 
@@ -134,7 +134,8 @@
 	        //
 	        function capturePhoto() {
 	          // Take picture using device camera and retrieve image as base64-encoded string
-	          navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
+	          //navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
+	        	navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
 	        }
 
 	        // A button will call this function
@@ -189,6 +190,8 @@
 	            <div class="functionsep">
 	                <button onclick="capturePhoto();">Take A Photo</button>
 	                <br/><br/>
+	                <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Choose A Photo</button>
+                    <br/><br/>
 	                <!-- <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
 	                <br/> -->
 	                <img style="display:none;width:100%;" id="largeImage" src="" />
