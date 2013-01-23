@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "edu.arizona.cals.AndroidAppDev1"
-        versionCode="3" 
+        versionCode="4" 
         version   = "1.0.0">
     <name>CALS App Dev v1.0</name>
 
@@ -21,6 +21,7 @@
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
+    <preference name="load-url-timeout" value="60000" /><!-- http://community.phonegap.com/nitobi/topics/app_dies_on_startup_connection_to_the_server_was_unsuccessful -->
     <!-- iOS specific preferences -->
     <preference name="stay-in-webview" value="false" /><!-- if set to true, all links (even with target set to blank) will open in the app's webview (take over app) -->
     <preference name="auto-hide-splash-screen" value="true" /><!-- if set to false, the splash screen must be hidden using a JavaScript API -->
