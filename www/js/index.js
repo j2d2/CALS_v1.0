@@ -16,6 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var menuOpen = false;
+var menuDiv = "";
+            
 var app = {
     // Application Constructor
     initialize: function() {
@@ -34,6 +38,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        document.addEventListener("menubutton", doMenu, false);
         app.displayDeviceInfo();
         checkConnection();
         navigator.splashscreen.hide();
@@ -51,7 +56,7 @@ var app = {
         navElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    },
     // display Device info
     displayDeviceInfo: function() {
     	var element = document.getElementById('deviceProperties');
@@ -61,24 +66,42 @@ var app = {
                             'Device Platform: ' + device.platform + '<br />' + 
                             'Device UUID: '     + device.uuid     + '<br />' + 
                             'Device Version: '  + device.version  + '<br />';
+        console.log('displayed Device info');
     }
     
-    //check connection status
-    function checkConnection() {
-        var networkState = navigator.connection.type;
-
-        var states = {};
-        states[Connection.UNKNOWN]  = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI]     = 'WiFi connection';
-        states[Connection.CELL_2G]  = 'Cell 2G connection';
-        states[Connection.CELL_3G]  = 'Cell 3G connection';
-        states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.NONE]     = 'No network connection';
-
-        //alert('Connection type: ' + states[networkState]);
-        var element = document.getElementById('deviceConnection');
-        element.innerHTML = 'Connection type: ' + states[networkState];
-        
-    }
+    
 };
+
+function doMenu() {
+    console.log("The menu was clicked...");
+    menuDiv = document.querySelector("#menu");
+    if(menuOpen) {
+        console.log("close the menu");
+        menuDiv.style.display="none";
+        menuOpen = false;
+    } else {
+        console.log("open the menu");
+        menuDiv.style.display="block";
+        menuOpen = true;
+    }
+}
+
+//check connection status
+function checkConnection() {
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.NONE]     = 'No network connection';
+
+    //alert('Connection type: ' + states[networkState]);
+    var element = document.getElementById('deviceConnection');
+    element.innerHTML = 'Connection type: ' + states[networkState];
+    
+    console.log('Connection checked');
+}

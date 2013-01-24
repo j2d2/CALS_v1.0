@@ -87,6 +87,10 @@ button:hover {
 .uablue {
     color: #002147;
 }
+.grey { color: #666666; }
+.ltgrey { color: #999999; }
+.dkgrey { color: #333333; }
+.ltrgrey { color: #cccccc; }
 
 .bold {
     font-weight: bold;
@@ -237,4 +241,27 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+div#menu {
+    width: 30%;
+    background-color: #cccccc;
+    background-color: rgba(255,255,255,0.90);
+    border: thin solid #666666;
+    position:absolute;
+    bottom: 0;
+    left: 33%;
+    display:none;
+    padding: 10px;
+    font-size:110%;
+    text-align: center;
+    
+}
+div#menu ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+div#menu ul li {
+    padding: 10px;
 }

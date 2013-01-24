@@ -39,19 +39,3 @@ img.head {
 	}
 }
 
-div#menu {
-    width: 30%;
-    background-color: #cccccc;
-    border: thin solid #666666;
-    position:absolute;
-    bottom: 0;
-    left: 35%;
-    display:none;
-    padding: 5px;
-    font-size:110%;
-    text-align: center;
-}
-div#menu a {
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
