@@ -66,13 +66,7 @@
     <feature name="http://api.phonegap.com/1.0/network"/>
     
     <!-- <feature name="http://api.phonegap.com/1.0/media"/> -->
-    
-    
 
-    <feature id="blackberry.app" required="true" version="1.0.0.0" />
-    <rim:permissions>
-        <rim:permit>read_device_identifying_information</rim:permit>
-    </rim:permissions>
     
     <access origin="http://arizona.edu" subdomains="true" />
 </widget>
