@@ -172,7 +172,7 @@ button:hover {
     }
     .app {
         background-position: left center;
-        padding:90px 0px 90px 128px;  /* padding-top + padding-bottom + text area = image height */
+        padding:120px 0px 120px 128px;  /* padding-top + padding-bottom + text area = image height */
         margin:0px 0px 0px 0px;  /* offset vertical: half of image height */
                                       /* offset horizontal: half of image width and text area width */
    
