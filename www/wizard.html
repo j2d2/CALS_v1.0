@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" manifest="webapp.appcache">
+<head>
+    <title>Determine the Diseases of Early Season Cotton</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/><!-- target-densitydpi=device-dpi -->
+    
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.2.0.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/PlantApp.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/cals-cottonapp-production.css" />
+
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.mobile-1.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/cals.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script type="text/javascript">
+        $(document).on('mobileinit', function () {
+            $.mobile.loader.prototype.options.text = "loading";
+            $.mobile.loader.prototype.options.textVisible = true;
+            $.mobile.loader.prototype.options.textonly = false;
+            $.mobile.loader.prototype.options.theme = "b";
+            $.mobile.loader.prototype.options.html = "";
+        });
+
+
+        $(document).ready(function () {
+
+           
+        });
+
+       
+     </script>
+
+    <script>
+        var _gaq = [['_setAccount', 'UA-38175812-1'], ['_trackPageview']];
+        (function (d, t) {
+            var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            g.src = '//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s);
+        }(document, 'script'));
+    </script>
+</head>
+<body>
+    <!-- DECIDER 1 -->
+    <div data-role="dialog" id="decider1" data-theme="b">
+        <div data-role="header" data-id="header" data-position="inline" role="banner">
+            <h1 class="ui-title">
+                Determine Disease of Cotton
+            </h1>
+        </div><!-- /header -->
+        <div data-role="content" class="ui-content center">
+            <h3>
+                Determine Cotton Disease : Step 1
+            </h3>
+            <br />
+            <div class="decider">
+                 <fieldset data-role="controlgroup"  data-type="vertical">
+                    <legend class="legend">Is there root rot?</legend>
+                    <a href="#decider-rootrot" data-rel="dialog" data-transition="flip" data-role="button" data-icon="check" data-iconpos="left">Yes</a>
+                    <a href="#decider-rootrot-no" data-rel="dialog" data-transition="flip" data-role="button" data-icon="delete" data-iconpos="left">No</a>
+                    <a href="#decider-rootrot-notsure" data-rel="dialog" data-transition="flip" data-role="button" data-icon="alert" data-iconpos="left">Not Sure</a>
+                </fieldset>
+            </div>
+               
+            <br /><br />
+            
+            <a href="main.html#determine" data-ajax="false" data-role="button" data-inline="true" data-rel="back" data-theme="a" data-icon="delete">Cancel Wizard</a>
+        </div>
+    </div><!-- /page : decider1 -->
+
+
+    <!-- DECIDER rootrot - yes -->
+    <div data-role="dialog" id="decider-rootrot" data-theme="b">
+        <div data-role="header" data-id="header" data-position="inline" role="banner">
+            <h1 class="ui-title">
+                Determine Disease of Cotton
+            </h1>
+        </div><!-- /header -->
+        <div data-role="content" class="ui-content center">
+            <h3>
+                Determine Cotton Disease : Step 2
+            </h3>
+            
+             <br />
+            <div class="decider">
+                <div class="deciderprogress">
+                    Root Rot = YES
+                    <hr />
+                    <br />
+                </div>
+                 <fieldset data-role="controlgroup"  data-type="vertical">
+                    <legend class="legend">Color of root rot?</legend>
+                    <a href="#decider-rootrot-brown" data-rel="dialog" data-transition="flip" data-role="button">Brown</a>
+                    <a href="#decider-rootrot-black" data-rel="dialog" data-transition="flip" data-role="button">Black</a>
+                    <a href="#decider-rootrot-discolored" data-rel="dialog" data-transition="flip" data-role="button">Discolored</a>
+                </fieldset>
+            </div>
+            <br />
+            <div class="decider-results">
+                <div class="bold">Possible Diseases</div>
+                (continue answering questions to reduce this list)
+                <br />
+
+                <ul data-role="listview" data-inset="true" data-theme="b">
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#fusarium-oxysporum" data-rel="dialog" data-transition="pop">
+                            <img src="img/FusariumOxysporumRace4_thumb.jpg" class="ui-li-thumb" alt=""/>
+                            <h3 class="ui-li-heading">Fusarium oxysporum Race 4</h3>
+                            <p class="ui-li-desc">A soil inhabiting fungus that causes a vascular wilt disease</p>
+                        </a>
+                    </li>
+                    <!--<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#root-knot-nematode" data-rel="dialog" data-transition="pop">
+                            <img src="img/cottrnot_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Root-knot Nematode</h3>
+                            <p class="ui-li-desc">Meloidogyne incognita, infects cotton and many other plants</p>
+                        </a>
+                    </li>-->
+                    <!--<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#verticillium-dahliae" data-rel="dialog" data-transition="pop">
+                            <img src="img/cotvw2a_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Verticillium dahliae</h3>
+                            <p class="ui-li-desc">A soil borne fungus that enters the roots and grows into the vascular system of the plant</p>
+                        </a>
+                    </li>-->
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#thielaviopsis-basicola" data-rel="dialog" data-transition="pop">
+                            <img src="img/cottba_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Thielaviopsis basicola</h3>
+                            <p class="ui-li-desc">A soil borne fungus that is easily found in soils throughout the state but causes disease only when soils are relatively cold and wet</p>
+                        </a>
+                    </li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#rhizoctonia-solani" data-rel="dialog" data-transition="pop">
+                            <img src="img/cotrs1a_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Rhizoctonia solani</h3>
+                            <p class="ui-li-desc">A soil borne fungus found throughout all cotton growing areas</p>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+               
+            <br /><br />
+            <a href="#decider1" data-role="button" data-icon="back" data-rel="back" data-inline="true">Back One Step</a>
+            
+            <a href="main.html#determine" data-ajax="false" data-role="button" data-inline="true" data-theme="a" data-icon="delete">Cancel Wizard</a>
+        </div>
+    </div><!-- /page : decider - rootrot - yes -->
+
+
+
+    <!-- DECIDER rootrot - no -->
+    <div data-role="dialog" id="decider-rootrot-no" data-theme="b">
+        <div data-role="header" data-id="header" data-position="inline" role="banner">
+            <h1 class="ui-title">
+                Determine Disease of Cotton
+            </h1>
+        </div><!-- /header -->
+        <div data-role="content" class="ui-content center">
+            <h3>
+                Determine Cotton Disease : Step 2
+            </h3>
+            
+             <br />
+            <div class="decider">
+                <div class="deciderprogress">
+                    Root Rot = NO
+                    <hr />
+                    <br />
+                </div>
+                 <fieldset data-role="controlgroup"  data-type="vertical">
+                    <legend class="legend">Are the leaves marked?</legend>
+                    <a href="#decider-leaves-yellow" data-rel="dialog" data-transition="flip" data-role="button">Margins Yellow</a>
+                    <a href="#decider-leaves-brown" data-rel="dialog" data-transition="flip" data-role="button">Brown curled edges</a>
+                    <a href="#decider-leaves-tearing" data-rel="dialog" data-transition="flip" data-role="button">Tearing</a>
+                    <a href="#decider-leaves-senescence" data-rel="dialog" data-transition="flip" data-role="button">Crumpling (senescence)</a>
+                     
+                </fieldset>
+            </div>
+            <br />
+            <div class="decider-results">
+                <div class="bold">Possible Diseases</div>
+                (continue answering questions to reduce this list)
+                <br />
+
+                <ul data-role="listview" data-inset="true" data-theme="b">
+                    <!--<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#fusarium-oxysporum" data-rel="dialog" data-transition="pop">
+                            <img src="img/FusariumOxysporumRace4_thumb.jpg" class="ui-li-thumb" alt="" />
+                            <h3 class="ui-li-heading">Fusarium oxysporum Race 4</h3>
+                            <p class="ui-li-desc">A soil inhabiting fungus that causes a vascular wilt disease</p>
+                        </a>
+                    </li>-->
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#root-knot-nematode" data-rel="dialog" data-transition="pop">
+                            <img src="img/cottrnot_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Root-knot Nematode</h3>
+                            <p class="ui-li-desc">Meloidogyne incognita, infects cotton and many other plants</p>
+                        </a>
+                    </li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#verticillium-dahliae" data-rel="dialog" data-transition="pop">
+                            <img src="img/cotvw2a_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Verticillium dahliae</h3>
+                            <p class="ui-li-desc">A soil borne fungus that enters the roots and grows into the vascular system of the plant</p>
+                        </a>
+                    </li>
+                    <!--<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#thielaviopsis-basicola" data-rel="dialog" data-transition="pop">
+                            <img src="img/cottba_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Thielaviopsis basicola</h3>
+                            <p class="ui-li-desc">A soil borne fungus that is easily found in soils throughout the state but causes disease only when soils are relatively cold and wet</p>
+                        </a>
+                    </li>-->
+                   <!-- <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#rhizoctonia-solani" data-rel="dialog" data-transition="pop">
+                            <img src="img/cotrs1a_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Rhizoctonia solani</h3>
+                            <p class="ui-li-desc">A soil borne fungus found throughout all cotton growing areas</p>
+                        </a>
+                    </li>-->
+                </ul>
+
+            </div>
+               
+            <br /><br />
+            <a href="#decider1" data-role="button" data-icon="back" data-rel="back" data-inline="true">Back One Step</a>
+            
+            <a href="main.html#determine" data-ajax="false" data-role="button" data-inline="true" data-theme="a" data-icon="delete">Cancel Wizard</a>
+        </div>
+    </div><!-- /page : decider - rootrot - no -->
+
+
+     <!-- DECIDER rootrot - not sure -->
+    <div data-role="dialog" id="decider-rootrot-notsure" data-theme="b">
+        <div data-role="header" data-id="header" data-position="inline" role="banner">
+            <h1 class="ui-title">
+                Determine Disease of Cotton
+            </h1>
+        </div><!-- /header -->
+        <div data-role="content" class="ui-content center">
+            <h3>
+                Determine Cotton Disease : Step 2
+            </h3>
+            
+             <br />
+            <div class="decider">
+                <div class="deciderprogress">
+                    Root Rot = NOT SURE
+                    <hr />
+                    <br />
+                </div>
+                 <fieldset data-role="controlgroup"  data-type="vertical">
+                    <legend class="legend">Are the leaves marked?</legend>
+                    <a href="#decider-leaves-yellow" data-rel="dialog" data-transition="flip" data-role="button">Margins Yellow</a>
+                    <a href="#decider-leaves-brown" data-rel="dialog" data-transition="flip" data-role="button">Brown curled edges</a>
+                    <a href="#decider-leaves-tearing" data-rel="dialog" data-transition="flip" data-role="button">Tearing</a>
+                    <a href="#decider-leaves-senescence" data-rel="dialog" data-transition="flip" data-role="button">Crumpling (senescence)</a>
+                     
+                </fieldset>
+            </div>
+            <br />
+            <div class="decider-results">
+                <div class="bold">Possible Diseases</div>
+                (continue answering questions to reduce this list)
+                <br />
+
+                <ul data-role="listview" data-inset="true" data-theme="b">
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#fusarium-oxysporum" data-rel="dialog" data-transition="pop">
+                            <img src="img/FusariumOxysporumRace4_thumb.jpg" alt="" class="ui-li-thumb"/>
+                            <h3 class="ui-li-heading">Fusarium oxysporum Race 4</h3>
+                            <p class="ui-li-desc">A soil inhabiting fungus that causes a vascular wilt disease</p>
+                        </a>
+                    </li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#root-knot-nematode" data-rel="dialog" data-transition="pop">
+                            <img src="img/cottrnot_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Root-knot Nematode</h3>
+                            <p class="ui-li-desc">Meloidogyne incognita, infects cotton and many other plants</p>
+                        </a>
+                    </li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#verticillium-dahliae" data-rel="dialog" data-transition="pop">
+                            <img src="img/cotvw2a_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Verticillium dahliae</h3>
+                            <p class="ui-li-desc">A soil borne fungus that enters the roots and grows into the vascular system of the plant</p>
+                        </a>
+                    </li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#thielaviopsis-basicola" data-rel="dialog" data-transition="pop">
+                            <img src="img/cottba_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Thielaviopsis basicola</h3>
+                            <p class="ui-li-desc">A soil borne fungus that is easily found in soils throughout the state but causes disease only when soils are relatively cold and wet</p>
+                        </a>
+                    </li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right">
+                        <a href="#rhizoctonia-solani" data-rel="dialog" data-transition="pop">
+                            <img src="img/cotrs1a_thumb.jpg" alt="" />
+                            <h3 class="ui-li-heading">Rhizoctonia solani</h3>
+                            <p class="ui-li-desc">A soil borne fungus found throughout all cotton growing areas</p>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+               
+            <br /><br />
+            <a href="#decider1" data-role="button" data-icon="back" data-rel="back" data-inline="true">Back One Step</a>
+            
+            <a href="main.html#determine" data-ajax="false" data-role="button" data-inline="true" data-theme="a" data-icon="delete">Cancel Wizard</a>
+        </div>
+    </div><!-- /page : decider - rootrot - not sure -->
+
+
+
+
+
+
+
+    <!-- DISEASES -->
+
+    <!-- Fusarium-Oxysporum -->
+    <div data-role="dialog" data-theme="b" id="fusarium-oxysporum">
+        <div data-role="header">
+            <h1>Cotton Diseases</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" class="center">
+            <div class="content-primary">
+                <div class="pagetitle">
+                    Fusarium Oxysporum Race 4
+                </div>
+                <p>
+                    <img src="img/FusariumOxysporumRace4.gif" class="floatleft" alt="Fusarium Oxysporum Race 4" />
+                    Fusarium oxysporum f. sp. vasinfectum (or “FOV”) is a soilinhabiting fungus that causes a vascular wilt disease in susceptible cotton varieties. 
+                    It has been widely recognized in the San Joaquin Valley since the 1950’s. 
+                    Historically, Fusarium wilt in cotton produced visible symptoms and caused economic damage only in susceptible varieties in combination with 
+                    significant populations of the root knot nematode (Meloidogyne incognita). Fusarium wilts usually seen in these prior recognized cases were 
+                    caused by race 1 or race 2 of FOV. In recent years, however, several localized occurrences of FOV infections with moderate to severe plant 
+                    damage have been confirmed in the absence of nematode populations. 
+                    <br /><br />
+                    In these cases, the disease was caused by race 4 FOV. 
+                    Evaluations in 2003 indicated that all widely-grown commercial Pima varieties tested were more seriously damaged than tested Acala or 
+                    non-Acala Upland varieties. Field trials also indicated good levels of resistance to race 4 FOV in some experimental Pima varieties. 
+                    It is significant, however, that many Upland/Acala varieties field-tested under high race 4 inoculum loads in 2003 were also infected, 
+                    albeit with fewer symptoms and less damage than in most Pima varieties.
+
+                </p>
+                <br />
+                <a href="http://en.wikipedia.org/wiki/Fusarium_oxysporum" data-role="button" data-rel="external">Read more on Wikipedia</a>
+                <br />
+            </div>
+            <div class="content-secondary">
+                <a href="#decider1" data-rel="back" data-role="button" data-icon="back">Back to List</a>
+            </div>  
+            
+        </div><!-- /content -->
+
+    </div><!-- /dialog Fusarium-Oxysporum -->
+
+
+    <!-- root-knot-nematode -->
+    <div data-role="dialog" data-theme="b" id="root-knot-nematode">
+        <div data-role="header">
+            <h1>Cotton Diseases</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" class="center">
+            <div class="content-primary">
+                <div class="pagetitle">
+                    Root-knot Nematode
+
+                </div>
+                <p>
+                    
+                    The Root-knot nematode, <span class="italic">Meloidogyne incognita</span>, infects cotton and many other plants.  This nematode is widespread in Arizona and is usually found in sandy or sandy loam soils.  It is an obligate parasite that must complete its life cycle in a plant host, but eggs are persistent and can remain inactive in the absence of a host and/or in fallow fields for months or years.  It is most active in the summer when soil temperatures are warm.
+                 </p>
+                 <p>
+                    As <span class="italic">M. incognita</span> larvae enter the plant root, feed, and mature, the surrounding cells of the plant root increase in size and divide causing swellings (galls) on the roots.  
+                  </p>
+                <div class="center">
+                    <img src="img/cottrnot.jpg" class="center" alt="Root-knot Nematode" />
+                </div>
+                     
+                 <p>
+                    In cotton, these swellings are usually small and often very inconspicuous.  Plants may be heavily infected even though galls are not easily visible (see photo).  Once cotton plants are infected, the flow of nutrients and water is restricted.  Severely infected young plants are often stunted and chlorotic.  Infected mature plants do not die, but yields are reduced. 
+                </p>
+                 <p>
+                     Because of the wide host range of root-knot nematode, control is difficult. Sorghum, corn, melons, watermelon, peppers and beans, among many other crops, are all hosts and should not be rotated with cotton when <span class="italic">M. incognita</span> is a problem.  Rotations to alfalfa and oats, which are not hosts, are effective, especially in  multiple year rotations. 
+                </p>
+                 <p>
+                     Preplant soil fumigation with 1,3 Dichloropropene is also effective in reducing early infections.  Fields to be planted to cotton can be sampled in January and February and the soils assayed for presence of root-knot nematode. Currently assays are done at the Nematology Lab of the Department of Plant Pathology.  Fumigation is recommended if greater than 0.5 juveniles/cc soil are detectable.
+                 </p>
+                <br />
+                <a href="http://en.wikipedia.org/wiki/Root-knot_nematode" data-role="button" data-rel="external">Read more on Wikipedia</a>
+                <br />
+            </div>
+            <div class="content-secondary">
+                <a href="#decider1" data-rel="back" data-role="button" data-icon="back">Back to List</a>
+            </div>  
+            
+        </div><!-- /content -->
+
+    </div><!-- /dialog root-knot-nematode -->
+
+
+    <!-- Verticillium dahliae -->
+    <div data-role="dialog" data-theme="b" id="verticillium-dahliae">
+        <div data-role="header">
+            <h1>Cotton Diseases</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" class="center">
+            <div class="content-primary">
+                <div class="pagetitle">
+                    Verticillium wilt
+                </div>
+                <p>
+                    
+                    Verticillium wilt of cotton is caused by <span class="italic">Verticillium dahliae</span>, a soil borne fungus that enters the roots and grows into the vascular system of the plant. Symptoms of infection appear as necrotic areas on leaves (photo 1), 
+                 </p>
+                <div class="center">
+                    <img src="img/cotvw2a.jpg" class="center" alt="Verticillium wilt" />
+                    <div class="caption">
+                        1. Leaf chlorosis and necrosis <span>(Verticillium dahliae)</span>
+                    </div>
+                </div>
+                
+                <p>
+                    wilting (photo 2),
+                </p>
+                <div class="center">
+                    <img src="img/cotvw3a.jpg" class="center" alt="Verticillium wilt" />
+                    <div class="caption">
+                        2. Wilting and leaf necrosis <span>(Verticillium dahliae)</span>
+                    </div>
+                </div>
+                <p>
+                    and usually discoloration of the vascular tissue (photo 3).
+                </p>
+                <div class="center">
+                    <img src="img/cotvw1a.jpg" class="center" alt="Verticillium wilt" />
+                    <div class="caption">
+                        3. Vascular discoloration <span>(Verticillium dahliae)</span>
+                    </div>
+                </div>
+                <p>
+                    Symptoms usually appear in late August and September, and may be more pronounced in years when early season temperatures (May to early June) are lower than usual. Different strains of the fungus are found in Arizona, a non-defoliating strain that causes leaf lesions and vascular discoloration, and a defoliating strain that usually causes severe defoliation as well as vascular wilt. If plants wilt and die, foliar symptoms may be confused with those of cotton (Texas) root, but plants infected with <span class="italic">Verticillium</span> only have no rotten roots. Symptoms of Verticillium wilt of cotton are very similar to those of Fusarium wilt, but to date we have have no record of a positive identification of Fusarium wilt in cotton in Arizona.
+                </p>
+                <p>
+                    <span class="italic">V. dahliae</span> survives in the soil for long periods of time as microsclerotia, tiny structures produced in the plant tissue. The varieties of both upland (<span class="italic">G. hirsutum</span>) and Pima cotton (<span class="italic">Gossypium barbadense</span>) planted in Arizona at this time are susceptible, but varieties differ in the intensity of infection and amount of defoliation. Rotation to alfalfa and grains may reduce the number of microsclerotia in the soil, but will not eliminate or possibly even reduce disease significantly. There are no chemical control measures available. 
+                </p>
+                                     
+                
+                <br />
+                <a href="http://en.wikipedia.org/wiki/Verticillium_wilt" data-role="button" data-rel="external">Read more on Wikipedia</a>
+                <br />
+            </div>
+            <div class="content-secondary">
+                <a href="#decider1" data-rel="back" data-role="button" data-icon="back">Back to List</a>
+            </div>  
+            
+        </div><!-- /content -->
+
+    </div><!-- /dialog verticillium-dahliae -->
+
+
+
+    <!-- thielaviopsis-basicola -->
+    <div data-role="dialog" data-theme="b" id="thielaviopsis-basicola">
+        <div data-role="header">
+            <h1>Cotton Diseases</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" class="center">
+            <div class="content-primary">
+                <div class="pagetitle">
+                    Thielaviopsis basicola
+                </div>
+                <p>
+                    Seedling disease of cotton in Arizona is caused primarily by <a href="disease-Rhizoctonia-solani.aspx" data-rel="dialog" data-transition="pop" class="italic">Rhizoctonia solani</a> and to a lesser extent by <span class="italic">Thielaviopsis basicola</span>.
+                </p>
+                <p>
+                    <span class="italic">Thielaviopsis</span> is a soil borne fungus that is easily found in soils throughout the state but causes disease only when soils are relatively cold and wet. It causes a dark colored root rot that also gives the disease the name "Black root rot" (see photo). 
+                    
+                 </p>
+                <div class="center">
+                    <img src="img/cottba.jpg" class="center" alt="Thielaviopsis basicola" />
+                    <div class="caption">
+                        Black root rot <span>(Thielaviopsis basicola)</span>
+                    </div>
+                </div>
+                
+                <p>
+                   Seed treatments are recommended for fields with a history of disease. 
+                </p>
+                
+                                     
+                
+                <br />
+                <a href="http://en.wikipedia.org/wiki/Thielaviopsis_basicola" data-role="button">Read more on Wikipedia</a>
+                <br />
+            </div>
+            <div class="content-secondary">
+                <a href="#decider1" data-rel="back" data-role="button" data-icon="back">Back to List</a>
+            </div>  
+            
+        </div><!-- /content -->
+
+    </div><!-- /dialog thielaviopsis-basicola -->
+
+
+    <!-- rhizoctonia-solani -->
+    <div data-role="dialog" data-theme="b" id="rhizoctonia-solani">
+        <div data-role="header">
+            <h1>Cotton Diseases</h1>
+        </div><!-- /header -->
+
+        <div data-role="content" class="center">
+            <div class="content-primary">
+                <div class="pagetitle">
+                    Rhizoctonia solani
+                </div>
+                <p>
+                    Seedling disease of cotton in Arizona is caused primarily by <span class="italic">Rhizoctonia solani</span> and to a lesser extent by <a href="disease-Thielaviopsis-basicola.aspx" data-rel="dialog" data-transition="pop" class="italic">Thielaviopsis basicola</a>.
+                </p>
+                <p>
+                    <span class="italic">Rhizoctonia</span> is a soil borne fungus found throughout all cotton growing areas. It commonly causes post emergent damping-off or collapse of seedlings when plant growth is slowed by low soil temperatures, residual herbicide phytotoxicity, planting too deep, poor seed vigor or crusting. Infected seedlings may have sunken reddish colored lesions on the upper root (see photo), or roots may be soft and darkened with a noticeable constriction at the soil line. 
+                 </p>
+                <div class="center">
+                    <img src="img/cotrs1a.jpg" class="center" alt="Rhizoctonia solani" />
+                    <div class="caption">
+                        Rhizoctonia root rot <span>(Rhizoctonia solani)</span>
+                    </div>
+                </div>
+                
+                <p>
+                    Fungicide treatment of seed reduces disease, but the best prevention is planting into soils when temperatures are favorable for fast germination, using high quality seed. Fields with a history of severe disease should be rotated out of cotton. 
+                </p>
+                        
+                
+                <br />
+                <a href="http://en.wikipedia.org/wiki/Rhizoctonia_solani" data-role="button" data-rel="external">Read more on Wikipedia</a>
+                <br />
+            </div>
+            <div class="content-secondary">
+                <a href="#decider1" data-rel="back" data-role="button" data-icon="back">Back to List</a>
+            </div>  
+            
+        </div><!-- /content -->
+
+    </div><!-- /dialog rhizoctonia-solani -->
+
+</body>
+</html>

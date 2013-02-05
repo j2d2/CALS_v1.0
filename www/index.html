@@ -6,10 +6,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>CALS App Dev</title>
         <script>
-            window.location='./main.html';
+	        window.dotsGoingUp = true;
+	        var dots = window.setInterval(function () {
+	            var wait = document.getElementById("wait");
+	            if (window.dotsGoingUp)
+	                wait.innerHTML += ".";
+	            else {
+	                wait.innerHTML = wait.innerHTML.substring(1, wait.innerHTML.length);
+	                if (wait.innerHTML === "")
+	                    window.dotsGoingUp = true;
+	            }
+	            if (wait.innerHTML.length > 2)
+	                window.dotsGoingUp = false;
+	        }, 400);
+            
+	        window.location='./loading.html';
         </script>
     </head>
     <body>
-
+        <div style="text-align:center;">
+            <div style="font-family:Impact, Charcoal, sans-serif;font-size: 200%;color:#666666;">
+	            <br/>
+	            CALS App Dev
+	            <br/><br/>
+	            <div id="loading" style="color:#999999">
+	                Loading<span id="wait"></span>
+	            </div>
+	            <br/><br/>
+	            <br/>
+	        </div>
+	        <div style="color:#999999;font-size: 80%;font-family:'Trebuchet MS', Helvetica, sans-serif;">
+	             If you are not automatically redirected, <br/>you can <a href="loading.html">click here to continue &raquo;</a>
+	         </div>
+        </div>
     </body>
 </html>

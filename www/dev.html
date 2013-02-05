@@ -20,16 +20,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" /><!-- , target-densitydpi=device-dpi -->
+        <title>PhoneGap Dev Home | CALS App Dev</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
-        <title>CALS App Dev</title>
+
         <script type="text/javascript" src="cordova-2.3.0.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="barcodescanner.js"></script><!-- https://github.com/wildabeast/BarcodeScanner -->
         <!-- <script type="text/javascript" src="cordova.js"></script> -->
-        <script type="text/javascript" src="js/calsdev.js"></script>
+        <script type="text/javascript" src="js/calsdev-phonegap.js"></script>
     </head>
     <body>
         <div class="sub">
@@ -87,16 +86,19 @@
         <div id="menu">
             <ul>
                 <li>
-                    <a href="main.html">Loader [index]</a>
+                    <a href="main.html">Cotton Diseases App</a>
                 </li>
                 <li>
-                    <a href="home.html">Refresh Home</a>
+                    <a href="#" onclick="openWindow('http://apps.cals.arizona.edu/cottondiseases/index.html');">jQuery Mobile site</a>
                 </li>
                 <li>
-                    <a href="#" onclick="openWindow('http://apps.cals.arizona.edu/cottondiseases');">jQuery Mobile site</a>
+                    <a href="dev.html">Refresh Dev Page</a>
                 </li>
                 <li>
-                    <a href="#" onclick="showConfirm(); return false;">Settings</a>
+                    <a href="loading.html">Back to Loading Page</a>
+                </li>
+                <li>
+                    <a href="#" onclick="showConfirm('Settings','What Settings should we show?','Beep','Vibrate'); return false;">Beep/Vibe Me</a>
                 </li>
             </ul>
 		    

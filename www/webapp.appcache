@@ -1,0 +1,67 @@
+CACHE MANIFEST
+# 2013-02-05:v1
+# You must modify the manifest file itself to inform the browser to refresh cached files
+# htaccess: AddType text/cache-manifest .appcache
+
+# http://www.html5rocks.com/en/tutorials/appcache/beginner/
+
+# Explicitly cached 'master entries'.
+CACHE:
+main.html
+wizard.html
+favicon.ico
+css/jquery.mobile.structure-1.2.0.min.css
+css/PlantApp.min.css
+css/cals-cottonapp-production.css
+js/jquery-1.8.3.min.js
+js/jquery.mobile-1.2.0.min.js
+js/jquery.prettyPhoto.js
+js/cals.js
+img/CALS_startup-image.png
+img/ua-blocka_32.png
+img/FusariumOxysporumRace4_square.jpg
+img/cottrnot_square.jpg
+img/cotvw2a_square.jpg
+img/cotvw3a_square.jpg
+img/cotvw1a_square.jpg
+img/cottba_square.jpg
+img/cotrs1a_square.jpg
+img/FusariumOxysporumRace4_thumb.jpg
+img/cottrnot_thumb.jpg
+img/cotvw2a_thumb.jpg
+img/cottba_thumb.jpg
+img/cotrs1a_thumb.jpg
+img/FusariumOxysporumRace4.gif
+img/cottrnot.jpg
+img/cotvw2a.jpg
+img/cotvw3a.jpg
+img/cotvw1a.jpg
+img/cottba.jpg
+img/cotrs1a.jpg
+css/images/ajax-loader.gif
+css/images/icons-18-white.png
+css/images/ua_a_line_logo_white.png
+css/images/ua_a_line_logo_white.svg
+css/images/cals.png
+img/prettyPhoto/default/loader.gif
+img/prettyPhoto/default/default_thumb.png
+img/prettyPhoto/default/sprite.png
+img/prettyPhoto/default/sprite_next.png
+img/prettyPhoto/default/sprite_prev.png
+img/prettyPhoto/default/sprite_x.png
+img/prettyPhoto/default/sprite_y.png
+
+# Resources that require the user to be online.
+NETWORK:
+#login.php
+#/myapi
+#http://api.twitter.com
+http://en.wikipedia.org
+
+# static.html will be served if main.py is inaccessible
+# offline.jpg will be served in place of all images in images/large/
+# offline.html will be served in place of all other .html files
+FALLBACK:
+#/main.py /static.html
+#images/large/ images/offline.jpg
+#*.html /offline.html
